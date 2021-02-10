@@ -8,12 +8,14 @@
 * Allows easy use in QGIS by importing as a delimited text layer.
 
 # Requirements
-Requires Node.js to be installed
+Requires Node.js to be installed on your system.
 
 ## Usage
 1. Make sure you have Node installed
-2. Clone the repo
-3. ./location-json2csv.js Location\ History.json history.csv
+
+2. Clone the repo ```git clone https://github.com/James-Smyth/location-json2csv/```
+
+3. Usage ```./location-json2csv.js Location\ History.json history.csv```
 
 ## License
 MIT
