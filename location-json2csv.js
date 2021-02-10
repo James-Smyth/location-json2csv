@@ -11,7 +11,7 @@ const fs = require('fs');
 
 if (process.argv.length < 3) {
   console.log('Converts a Google location history file to a CSV');
-  console.log(`Usage:location-json2csv "Location History.json" history.csv`);
+  console.log('Usage:location-json2csv "Location History.json" history.csv');
 } else if (!fs.existsSync(process.argv[2])) {
   console.log(`Can't locate file:${process.argv[2]}`);
 } else {
@@ -30,7 +30,7 @@ function parseFile () {
     const currentDate = new Date(parseInt(loc.timestampMs)).toISOString().split('T')[0];
     if (currentDate !== prevRecordDate) {
       dateID++;
-      prevRecordDay = currentDate;
+      prevRecordDate = currentDate;
     }
 
     csvArray.push({
@@ -40,10 +40,10 @@ function parseFile () {
       groupID: dateID
     });
   }
-  const outputName = process.argv[3] || "history.csv";
+  const outputName = process.argv[3] || 'history.csv';
 
-  let csvText = "lng, lat, time, groupID\n";
-  csvArray.map(item => csvText += `${item.lng}, ${item.lat}, ${item.time}, ${item.groupID}\n`);
+  let csvText = 'lng, lat, time, groupID\n';
+  csvArray.map(item => { csvText += `${item.lng}, ${item.lat}, ${item.time}, ${item.groupID}\n`; });
   fs.writeFileSync(outputName, csvText);
-  console.log(`[Success] Output: ${outputName}`)
+  console.log(`[Success] Output: ${outputName}`);
 }
